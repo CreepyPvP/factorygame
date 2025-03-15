@@ -10,8 +10,15 @@ void LoadState()
     state.width = 10;
     state.height = 5;
 
-    state.tiles[5 + 3 * state.width].type = TileType_Conveyor; 
+    state.machine[5 + 3 * state.width].type = MachineType_Conveyor; 
 }
+
+Color machine_colors[] = {
+    BLUE,
+    BLUE,
+    GREEN,
+    RED,
+};
 
 int main(void)
 {
@@ -33,6 +40,8 @@ int main(void)
         {
             for (i32 y = 0; y < state.height; ++y)
             {
+                MachineType type = state.machine[x + y * state.width].type;
+
                 if (state.machine[x + y * state.width].type)
                 {
                     DrawRectangle(x * TILE_SIZE, y * TILE_SIZE, TILE_SIZE, TILE_SIZE, BLUE);
