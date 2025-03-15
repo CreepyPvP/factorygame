@@ -1,4 +1,5 @@
 #pragma once
+#include "raylib.h"
 #include "types.h"
 
 enum MachineType
@@ -68,6 +69,8 @@ struct GameState
 
     u32 port_count;
     Port ports[16];
+
+    Camera2D camera;
 };
 
 extern GameState state;

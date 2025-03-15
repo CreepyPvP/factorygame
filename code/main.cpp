@@ -11,6 +11,10 @@ void LoadState()
     state.height = 5;
 
     state.machine[5 + 3 * state.width].type = MachineType_Conveyor; 
+
+    state.camera.target = {0, 0};
+    // state.camera.offset = {(f32) GetScreenWidth() / 2.0f, (f32) GetScreenHeight() / 2.0f};
+    state.camera.zoom = 100;
 }
 
 Color machine_colors[] = {
@@ -22,10 +26,7 @@ Color machine_colors[] = {
 
 int main(void)
 {
-    i32 screenWidth = 800;
-    i32 screenHeight = 450;
-    
-    InitWindow(screenWidth, screenHeight, "Factory game");
+    InitWindow(1600, 900, "Factory game");
 
     SetTargetFPS(60);
 
@@ -34,6 +35,7 @@ int main(void)
     while (!WindowShouldClose())
     {
         BeginDrawing();
+        BeginMode2D(state.camera);
         ClearBackground(RAYWHITE);
 
         for (i32 x = 0; x < state.width; ++x)
@@ -44,11 +46,12 @@ int main(void)
 
                 if (state.machine[x + y * state.width].type)
                 {
-                    DrawRectangle(x * TILE_SIZE, y * TILE_SIZE, TILE_SIZE, TILE_SIZE, BLUE);
+                    DrawRectangle(x , y , 1, 1, machine_colors[type]);
                 }
             }
         }
 
+        EndMode2D();
         EndDrawing();
     }
 
