@@ -1069,20 +1069,20 @@ void DrawGrid(int slices, float spacing)
     rlBegin(RL_LINES);
         for (int i = -halfSlices; i <= halfSlices; i++)
         {
-            if (i == 0)
-            {
-                rlColor3f(0.5f, 0.5f, 0.5f);
-            }
-            else
-            {
-                rlColor3f(0.75f, 0.75f, 0.75f);
-            }
+            // if (i == 0)
+            // {
+            //     rlColor3f(0.5f, 0.5f, 0.5f);
+            // }
+            // else
+            // {
+            rlColor3f(0.75f, 0.75f, 0.75f);
+            // }
 
-            rlVertex3f((float)i*spacing, 0.0f, (float)-halfSlices*spacing);
-            rlVertex3f((float)i*spacing, 0.0f, (float)halfSlices*spacing);
+            rlVertex3f((float)i*spacing, (float)-halfSlices*spacing, 0);
+            rlVertex3f((float)i*spacing, (float)halfSlices*spacing, 0);
 
-            rlVertex3f((float)-halfSlices*spacing, 0.0f, (float)i*spacing);
-            rlVertex3f((float)halfSlices*spacing, 0.0f, (float)i*spacing);
+            rlVertex3f((float)-halfSlices*spacing, (float)i*spacing, 0);
+            rlVertex3f((float)halfSlices*spacing, (float)i*spacing, 0);
         }
     rlEnd();
 }
