@@ -13,10 +13,16 @@ struct Tile
     TileType type;
 };
 
+struct Port
+{
+    i32 x;
+    i32 y;
+};
+
 struct GameState
 {
-    u32 width;
-    u32 height;
+    i32 width;
+    i32 height;
 
     Tile tiles[128];
 };

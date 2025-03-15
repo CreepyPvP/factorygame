@@ -24,7 +24,7 @@ int main(void)
 
     LoadState();
 
-    while (!WindowShouldClose())    // Detect window close button or ESC key
+    while (!WindowShouldClose())
     {
         BeginDrawing();
         ClearBackground(RAYWHITE);
