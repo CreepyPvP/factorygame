@@ -44,10 +44,12 @@ int main(void)
             {
                 MachineType type = state.machine[x + y * state.width].type;
 
-                if (state.machine[x + y * state.width].type)
+                if (type)
                 {
-                    DrawRectangle(x , y , 1, 1, machine_colors[type]);
+                    continue;
                 }
+                
+                DrawRectangle(x , y , 1, 1, machine_colors[type]);
             }
         }
 
