@@ -16,6 +16,10 @@ add_executable(${PROJECT_NAME}
 		code/main.cpp
 		code/state.cpp
 		code/state.h
+		code/edit_phase.cpp
+		code/edit_phase.h
+		code/game_math.cpp
+		code/game_math.h
 )
 
 target_link_libraries(${PROJECT_NAME} 

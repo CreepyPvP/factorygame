@@ -1,4 +1,5 @@
 #pragma once
+#include "game_math.h"
 #include "raylib.h"
 #include "types.h"
 
@@ -52,8 +53,15 @@ struct PendingAction
 
 struct Bomb
 {
-    i32 x;
-    i32 y;
+    Vec2I position;
+
+    u32 size_ext; // size is (1 + 2 * size_ext)
+};
+
+struct EditorData
+{
+    Vec2I hovered_pos;
+    MachineType hovered_type;
 };
 
 struct GameState
@@ -69,6 +77,7 @@ struct GameState
 
     u32 port_count;
     Port ports[16];
+
 
     Camera2D camera;
 };
