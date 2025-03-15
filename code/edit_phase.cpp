@@ -27,6 +27,32 @@ void UpdateEditPhase()
             hovered_type + 1);
     }
 
+    if (!select_active)
+    {
+        if (IsKeyPressed(KEY_Q))
+        {
+            if (state.editor.hovered_direction > 0)
+            {
+                state.editor.hovered_direction = (Direction)(state.editor.hovered_direction - 1);
+
+            } else
+            {
+                state.editor.hovered_direction = Direction_West;
+            }
+        }
+        if (IsKeyPressed(KEY_E) || IsKeyPressed(KEY_R))
+        {
+            if (state.editor.hovered_direction < Direction_West)
+            {
+                state.editor.hovered_direction = (Direction)(state.editor.hovered_direction + 1);
+
+            } else
+            {
+                state.editor.hovered_direction = Direction_North;
+            }
+        }
+    }
+
     if (state.editor.hovered_pos.x < 0 || state.editor.hovered_pos.y < 0) return;
     if (state.editor.hovered_pos.x > state.width || state.editor.hovered_pos.y > state.height) return;
 
@@ -34,7 +60,11 @@ void UpdateEditPhase()
 
     if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
     {
-        if (select_active)
+        if (machine->broken)
+        {
+            // todo: Play tile shake animation
+
+        } else if (select_active)
         {
             if (machine->action.type == ActionType_Destroy)
             {
@@ -54,6 +84,13 @@ void UpdateEditPhase()
     }
     else if (IsMouseButtonPressed(MOUSE_BUTTON_RIGHT))
     {
+
+        if (machine->broken)
+        {
+            // todo: Play tile shake animation
+
+        }
+
         if (machine->action.type == ActionType_None || machine->action.type == ActionType_Rotate)
         {
             machine->action.type == ActionType_Destroy;
