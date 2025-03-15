@@ -3,6 +3,7 @@
 
 #include "types.h"
 #include "state.h"
+#include "edit_phase.h"
 
 #define TILE_SIZE 64
 
@@ -47,6 +48,10 @@ int main(void)
         BeginDrawing();
         BeginMode2D(state.camera);
         ClearBackground(RAYWHITE);
+
+        UpdateEditPhase();
+
+        DrawRectangle(state.editor.hovered_pos.x, state.editor.hovered_pos.y, 1, 1, LIGHTGRAY);
 
         DrawGrid(50, 1);
 

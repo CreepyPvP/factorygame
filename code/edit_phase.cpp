@@ -5,9 +5,10 @@
 #include "edit_phase.h"
 
 #include "state.h"
-
+#include "math.h"
 
 void UpdateEditPhase()
 {
-    state.editor.hovered_pos = GetScreenToWorld2D(GetMousePosition(), state.camera);
+    Vector2 hovered = GetScreenToWorld2D(GetMousePosition(), state.camera);
+    state.editor.hovered_pos = v2i(floor(hovered.x), floor(hovered.y));
 }
