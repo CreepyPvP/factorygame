@@ -2,4 +2,3 @@
 
 
 void UpdateEditPhase();
-void DrawEditPhase();

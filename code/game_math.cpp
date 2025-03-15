@@ -5,6 +5,10 @@
 /// Vec2I
 ///////////////////////////////
 
+Vec2I::Vec2I(): x(0), y(0)
+{
+}
+
 Vec2I::Vec2I(const i32 x, const i32 y): x(x), y(y)
 {
 }

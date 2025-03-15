@@ -4,12 +4,10 @@
 
 #include "edit_phase.h"
 
+#include "state.h"
+
 
 void UpdateEditPhase()
 {
-
-}
-void DrawEditPhase()
-{
-
+    state.editor.hovered_pos = GetScreenToWorld2D(GetMousePosition(), state.camera);
 }

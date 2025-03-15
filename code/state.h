@@ -58,6 +58,12 @@ struct Bomb
     u32 size_ext; // size is (1 + 2 * size_ext)
 };
 
+
+struct Test
+{
+    Vec2I pos;
+};
+
 struct EditorData
 {
     Vec2I hovered_pos;
@@ -80,6 +86,8 @@ struct GameState
 
 
     Camera2D camera;
+
+    EditorData editor;
 };
 
 extern GameState state;

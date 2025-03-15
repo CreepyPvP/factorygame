@@ -8,6 +8,7 @@ struct Vec2I
     i32 x;
     i32 y;
 
+    Vec2I();
     Vec2I(i32 x, i32 y);
     Vec2I(Vector2 vec);
 
