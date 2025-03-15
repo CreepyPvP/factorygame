@@ -14,13 +14,15 @@ add_subdirectory(${RAYLIB_DIR})
 
 
 file(GLOB_RECURSE SOURCE_FILES
-    ${CMAKE_SOURCE_DIR}/code/main.cpp
+${CMAKE_SOURCE_DIR}/code/main.cpp
 )
 
 add_executable(${PROJECT_NAME} 
-    ${SOURCE_FILES}
+${SOURCE_FILES}
 )
 
 target_link_libraries(${PROJECT_NAME} 
-	raylib
+raylib
 )
+
+set_property(TARGET factory PROPERTY VS_DEBUGGER_WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}")

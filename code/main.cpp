@@ -1,22 +1,29 @@
 #include "raylib.h"
 #include "types.h"
 
+#define TILE_SIZE 64
+
 int main(void)
 {
     i32 screenWidth = 800;
     i32 screenHeight = 450;
-
-    InitWindow(screenWidth, screenHeight, "raylib [core] example - basic window");
+    
+    InitWindow(screenWidth, screenHeight, "Factory game");
 
     SetTargetFPS(60);
 
     while (!WindowShouldClose())    // Detect window close button or ESC key
     {
         BeginDrawing();
+        ClearBackground(RAYWHITE);
 
-            ClearBackground(RAYWHITE);
-
-            DrawText("Congrats! You created your first window!", 190, 200, 20, LIGHTGRAY);
+        for (u32 x = 0; x < 15; ++x)
+        {
+            for (u32 y = 0; y < 15; ++y)
+            {
+                DrawRectangle(x * TILE_SIZE, y * TILE_SIZE, TILE_SIZE, TILE_SIZE, BLUE);
+            }
+        }
 
         EndDrawing();
     }
