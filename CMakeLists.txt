@@ -12,13 +12,10 @@ set(CMAKE_CXX_STANDARD 20)
 set(RAYLIB_DIR raylib)
 add_subdirectory(${RAYLIB_DIR})
 
-
-file(GLOB_RECURSE SOURCE_FILES
-    ${CMAKE_SOURCE_DIR}/code/main.cpp
-)
-
-add_executable(${PROJECT_NAME} 
-    ${SOURCE_FILES}
+add_executable(${PROJECT_NAME}
+		code/main.cpp
+		code/state.cpp
+		code/state.h
 )
 
 target_link_libraries(${PROJECT_NAME} 
