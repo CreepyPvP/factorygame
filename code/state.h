@@ -17,6 +17,14 @@ enum ActionType
     ActionType_Place,
 };
 
+enum Direction
+{
+    Direction_North,
+    Direction_East,
+    Direction_South,
+    Direction_West,
+};
+
 struct Port
 {
     i32 x;
@@ -25,13 +33,6 @@ struct Port
     bool in;
 };
 
-enum Direction
-{
-    Direction_North,
-    Direction_East,
-    Direction_South,
-    Direction_West,
-};
 
 struct Machine
 {
