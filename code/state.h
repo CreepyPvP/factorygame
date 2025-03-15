@@ -6,9 +6,12 @@
 enum MachineType
 {
     MachineType_None,
+
     MachineType_Conveyor,
     MachineType_UnderGroundBelt_In,
     MachineType_UnderGroundBelt_Out,
+
+    MachineType_Count,
 };
 
 enum ActionType
@@ -36,19 +39,23 @@ struct Port
 };
 
 
+struct PendingAction
+{
+    ActionType type;
+
+    // Only use if ActionType_Place
+    MachineType placement_type;
+    // Only use if ActionType_Place or ActionType_Rotate
+    Direction facing;
+};
+
 struct Machine
 {
     MachineType type;
     bool broken;
     Direction facing;
-};
 
-struct PendingAction
-{
-    ActionType type;
-
-    MachineType placement_type;
-    Direction facing;
+    PendingAction action;
 };
 
 struct Bomb
@@ -68,6 +75,7 @@ struct EditorData
 {
     Vec2I hovered_pos;
     MachineType hovered_type;
+    Direction hovered_direction;
 };
 
 struct GameState
@@ -76,7 +84,6 @@ struct GameState
     i32 height;
 
     Machine machine[27*27];
-    PendingAction actions[27*27];
 
     Bomb bombs[27*27];
     u32 bomb_count;
