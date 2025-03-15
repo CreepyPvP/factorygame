@@ -42,7 +42,6 @@ struct PendingAction
 
 struct Bomb
 {
-    bool active;
     i32 x;
     i32 y;
 };
