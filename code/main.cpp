@@ -29,11 +29,11 @@ int main(void)
         BeginDrawing();
         ClearBackground(RAYWHITE);
 
-        for (u32 x = 0; x < state.width; ++x)
+        for (i32 x = 0; x < state.width; ++x)
         {
-            for (u32 y = 0; y < state.height; ++y)
+            for (i32 y = 0; y < state.height; ++y)
             {
-                if (state.tiles[x + y * state.width].type)
+                if (state.machine[x + y * state.width].type)
                 {
                     DrawRectangle(x * TILE_SIZE, y * TILE_SIZE, TILE_SIZE, TILE_SIZE, BLUE);
                 }
